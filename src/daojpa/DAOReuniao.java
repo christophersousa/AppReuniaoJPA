@@ -38,7 +38,7 @@ public class DAOReuniao extends DAO<Reuniao>{
 	}
 	
 	public List<Reuniao> meetinGuest(){
-		TypedQuery<Reuniao> q = manager.createQuery("select distinct r from Reuniao r join Convidado p on r.participantes.id = p.id where p.empresa is not null", Reuniao.class);
+		TypedQuery<Reuniao> q = manager.createQuery("select distinct r from Reuniao r join Convidado c on r.participantes.id = c.id where c.empresa is not null", Reuniao.class);
 		return  q.getResultList();
 	}
 	
